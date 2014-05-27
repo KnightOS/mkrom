@@ -17,8 +17,8 @@ Description
 
 _FILES_ is a list of pairs consisting of the filename and an offset, separated
 by a colon. The offset marks the position of the input file in the _OUTPUT_
-file. _LENGTH_ determinds how large _OUTPUT_ shall be. It is filled with 0xff
-bytes before the input files are copied.
+file. _LENGTH_ determinds how large _OUTPUT_ shall be. It is filled with 0xFF
+octets before the input files are copied.
 
 Examples
 --------
