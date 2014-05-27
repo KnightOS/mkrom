@@ -14,4 +14,4 @@ For Linux/Mac/etc, install cmake, make, asciidoc, and a C compiler, then:
     $ make
     # make install # as root
 
-On Windows, do the same thing under cygwin after installing cmake and your favorite C compiler. You can also download binaries from the releases page. On cygwin, install asciidoc.
+On Windows, do the same thing under cygwin after installing cmake, your favorite C compiler, and asciidoc.
