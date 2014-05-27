@@ -1,0 +1,35 @@
+/////
+vim:set ts=4 sw=4 tw=82 noet:
+/////
+mkrom (1)
+==========
+
+Name
+----
+mkrom - Writes individual files into a ROM image
+
+Synopsis
+--------
+'mkrom' _OUTPUT_ _LENGTH_ _FILES..._
+
+Description
+-----------
+
+_FILES_ is a list of pairs consisting of the filename and an offset, separated
+by a colon. The offset marks the position of the input file in the _OUTPUT_
+file. _LENGTH_ determinds how large _OUTPUT_ shall be. It is filled with 0xff
+bytes before the input files are copied.
+
+Examples
+--------
+
+mkrom example.rom 0x4000 temp1.bin:0x0 temp2.bin:0x200::
+	Create a 16KiB large ROM image from two input files, placed at offsets 0 and
+	512.
+
+Authors
+-------
+
+Maintained by Drew DeVault <sir@cmpwn.com>, who is assisted by other open
+source contributors. For more information about mkrom development, see
+<https://github.com/KnightOS/mkrom>.
