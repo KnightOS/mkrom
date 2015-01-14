@@ -86,9 +86,9 @@ void parse_context(int argc, char **argv) {
 			}
 		}
 	}
-	if (context.input == NULL) {
-		//fprintf(stderr, errorMessage);
-		//exit(1);
+	if (context.length == 0) {
+		fprintf(stderr, errorMessage);
+		exit(1);
 	}
 }
 
@@ -120,14 +120,14 @@ int main(int argc, char **argv) {
 		fprintf(stderr, "Unable to open %s\n", context.rom_file);
 		exit(1);
 	}
+	while (context.length--) {
+		fputc(0xff, context.rom);
+	}
 	if (context.input == NULL) {
 		fclose(context.rom);
 		return 0;
 	}
-	while (context.length--) {
-		fputc(0xff, context.rom);
-	}
-
+	
 	input = context.input;
 	while (1) {
 		write_file_to_image(input);
