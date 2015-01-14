@@ -123,11 +123,7 @@ int main(int argc, char **argv) {
 	while (context.length--) {
 		fputc(0xff, context.rom);
 	}
-	/*if (context.input == NULL) {
-		fclose(context.rom);
-		return 0;
-	}*/
-	
+		
 	input = context.input;
 	while (input) {
 		write_file_to_image(input);
