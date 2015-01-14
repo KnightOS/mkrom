@@ -86,7 +86,7 @@ void parse_context(int argc, char **argv) {
 			}
 		}
 	}
-	if (context.length == 0) {
+	if (context.length == 0 || context.rom_file == NULL ) {
 		fprintf(stderr, errorMessage);
 		exit(1);
 	}
@@ -123,18 +123,14 @@ int main(int argc, char **argv) {
 	while (context.length--) {
 		fputc(0xff, context.rom);
 	}
-	if (context.input == NULL) {
+	/*if (context.input == NULL) {
 		fclose(context.rom);
 		return 0;
-	}
+	}*/
 	
 	input = context.input;
-	while (1) {
+	while (input) {
 		write_file_to_image(input);
-
-		if (input == context.last_input) {
-			break;
-		}
 		input = input->next;
 	}
 
