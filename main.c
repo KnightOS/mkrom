@@ -97,9 +97,9 @@ void write_file_to_image(struct input_file *input) {
 	size_t amount_read;
 	char buffer[BLOCK_SIZE];
 
-	input_file = fopen(input->file, "r");
+	input_file = fopen(input->file, "rb");
 	if (input_file == NULL) {
-		fprintf(stderr, "Unable to open %s\n", context.rom_file);
+		fprintf(stderr, "Unable to open %s\n", input->file);
 		exit(1);
 	}
 
@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
 	struct input_file *input;
 	parse_context(argc, argv);
 
-	context.rom = fopen(context.rom_file, "w");
+	context.rom = fopen(context.rom_file, "wb");
 	if (context.rom == NULL) {
 		fprintf(stderr, "Unable to open %s\n", context.rom_file);
 		exit(1);
