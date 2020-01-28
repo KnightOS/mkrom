@@ -1,17 +1,14 @@
-cmake_minimum_required(VERSION 2.8.5)
+cmake_minimum_required(VERSION 3.1)
+
 project(mkrom C)
-set(CMAKE_CXX_FLAGS "-g")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin/")
-add_definitions("-Wall")
 
-add_executable(mkrom
-    main.c
-)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic -Werror")
 
-install(PROGRAMS ${CMAKE_BINARY_DIR}/bin/mkrom
-    DESTINATION bin)
+if (NOT DEFINED CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
-set(CMAKE_BUILD_TYPE Release)
+add_executable(mkrom main.c)
 
 ADD_CUSTOM_COMMAND(
   TARGET mkrom
@@ -20,7 +17,8 @@ ADD_CUSTOM_COMMAND(
   OUTPUTS ${CMAKE_CURRENT_BINARY_DIR}/mkrom.1
 )
 
+install(TARGETS mkrom DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 INSTALL(
     FILES ${CMAKE_CURRENT_BINARY_DIR}/mkrom.1
-    DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1
+    DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1
 )
