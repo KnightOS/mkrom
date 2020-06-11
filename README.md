@@ -1,4 +1,6 @@
 # mkrom
+[![builds.sr.ht status](https://builds.sr.ht/~pixelherodev/mkrom/commits.svg)](https://builds.sr.ht/~pixelherodev/mkrom/commits?)
+
 
 Writes individual files into a ROM image
 
