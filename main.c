@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <strings.h>
 
 #define BLOCK_SIZE 0x100
 
@@ -44,7 +43,7 @@ void parse_context(int argc, char **argv) {
 	int i;
 	for (i = 1; i < argc; i++) {
 		if (*argv[i] == '-') {
-			if (strcasecmp(argv[i], "--help") == 0) {
+			if (strcmp(argv[i], "--help") == 0) {
 				show_help();
 				exit(0);
 			} else {
