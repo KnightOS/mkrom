@@ -1,16 +1,10 @@
 image: archlinux
 packages:
-    - cmake
     - asciidoc
 sources:
     - https://github.com/KnightOS/mkrom
 tasks:
-    - configure: |
-        cd mkrom
-        mkdir build
-        cd build
-        cmake ..
     - build: |
-        cd mkrom/build
+        cd mkrom
         make
 
