@@ -47,7 +47,7 @@ void parse_context(int argc, char **argv) {
 				show_help();
 				exit(0);
 			} else {
-				fprintf(stderr, errorMessage);
+				fputs(errorMessage, stderr);
 				exit(1);
 			}
 		} else {
@@ -56,7 +56,7 @@ void parse_context(int argc, char **argv) {
 			} else if (context.length == 0) {
 				if (sscanf(argv[i], "0x%x", &context.length) != 1 &&
 					sscanf(argv[i], "%u", &context.length) != 1) {
-					fprintf(stderr, errorMessage);
+					fputs(errorMessage, stderr);
 					exit(1);
 				}
 			} else {
@@ -65,7 +65,7 @@ void parse_context(int argc, char **argv) {
 				if (colon == NULL ||
 					(sscanf(colon+1, "0x%x", &offset) != 1 &&
 					sscanf(colon+1, "%u", &offset) != 1)) {
-					fprintf(stderr, errorMessage);
+					fputs(errorMessage, stderr);
 					exit(1);
 				}
 				*colon = '\0';
@@ -73,7 +73,6 @@ void parse_context(int argc, char **argv) {
 				input->offset = offset;
 				input->file = argv[i];
 				input->next = NULL;
-				strcpy(input->file, argv[i]);
 				if (context.input == NULL) {
 					context.input = input;
 					context.last_input = input;
@@ -86,7 +85,7 @@ void parse_context(int argc, char **argv) {
 		}
 	}
 	if (context.length == 0 || context.rom_file == NULL ) {
-		fprintf(stderr, errorMessage);
+		fputs(errorMessage, stderr);
 		exit(1);
 	}
 }
