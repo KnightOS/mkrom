@@ -7,7 +7,7 @@ bin/mkrom:main.o
 bin/mkrom.1:mkrom.1.txt
 	a2x --no-xmllint --doctype manpage --format manpage mkrom.1.txt -v -D bin/
 	
-DESTDIR=/usr
+DESTDIR=/usr/local
 BINDIR=$(DESTDIR)/bin/
 MANDIR=$(DESTDIR)/share/man/
 
