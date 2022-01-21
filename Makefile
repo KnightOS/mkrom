@@ -21,3 +21,7 @@ install_man: bin/mkrom.1
 
 uninstall:
 	$(RM) $(BINDIR)/mkrom $(MANDIR)/man1/mkrom.1
+
+clean:
+	$(RM) bin *.o -rv
+
