@@ -1,5 +1,7 @@
 CFLAGS=-Wall -Wextra -pedantic -std=c99 -O2 -g
 
+all: bin/mkrom bin/mkrom.1
+
 bin/mkrom:main.o
 	mkdir -p bin/
 	$(CC) $(CFLAGS) $^ -o $@
