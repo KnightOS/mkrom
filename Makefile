@@ -6,8 +6,8 @@ bin/mkrom:main.o
 	mkdir -p bin/
 	$(CC) $(CFLAGS) $^ -o $@
 
-bin/mkrom.1:mkrom.1.txt
-	a2x --no-xmllint --doctype manpage --format manpage mkrom.1.txt -v -D bin/
+bin/mkrom.1:mkrom.1.scdoc
+	scdoc < mkrom.1.scdoc > bin/mkrom.1
 	
 DESTDIR=/usr/local
 BINDIR=$(DESTDIR)/bin/
